@@ -1,5 +1,6 @@
-class Solution {
-public:
+#include <bits/stdc++.h>
+using namespace std;
+
     bool isPalindrome(int x) {
         long long int reverseNum=0;         //LONG LONG INT to allow go beyond range for the time being
         int i=x;
@@ -17,4 +18,18 @@ public:
     else
         return false;
     }
-};
+
+
+int main() {
+  int n;
+  cout << "Enter a number: ";
+  cin >> n;
+
+  if (isPalindrome(n)) {
+    cout << n << " is an Palindrome number." << endl;
+  } else {
+    cout << n << " is not an Palindrome number." << endl;
+  }
+
+  return 0;
+}

@@ -1,39 +1,36 @@
-//{ Driver Code Starts
-// Initial Template for C++
 #include <bits/stdc++.h>
 using namespace std;
 
-// } Driver Code Ends
-// User function Template for C++
-class Solution {
-  public:
-    string armstrongNumber(int n){
-        // code here
-        int armstrongNum=0;
-        int digit=0;
-        for(int i=n; i>0; i=i/10)
-        {
-            digit=i%10;
-            armstrongNum+=(pow(digit,3));
-        }
-        if (armstrongNum==n)
-            return ("Yes");
-        else
-            return("No");
-    }
-};
+bool isArmstrong(int n) {
+  int sum = 0;
+  int order = 0;
+  int temp = n;
 
-//{ Driver Code Starts.
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        Solution ob;
-        cout << ob.armstrongNumber(n) << endl;
-    }
-    return 0;
+  while (temp > 0) {
+    order++;
+    temp /= 10;
+  }
+
+  temp = n;
+  while (temp > 0) {
+    int digit = temp % 10;
+    sum += pow(digit, order);
+    temp /= 10;
+  }
+
+  return sum == n;
 }
 
-// } Driver Code Ends
+int main() {
+  int n;
+  cout << "Enter a number: ";
+  cin >> n;
+
+  if (isArmstrong(n)) {
+    cout << n << " is an Armstrong number." << endl;
+  } else {
+    cout << n << " is not an Armstrong number." << endl;
+  }
+
+  return 0;
+}
